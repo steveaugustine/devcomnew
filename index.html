@@ -26,7 +26,17 @@
             </form>
         </div>
     </section>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbx1Hsy7uJmAe6lVmeD4lvbCF0kGqvPUbUMkpjxwTvEsTYoTM1am6vh3EAC_kJEW-0JJtQ/exec'
+    const form = document.forms['google-sheet']
+    form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+    .then(response => alert("Your response has been submitted"))
+    .catch(error => console.error('Error!', error.message)) })
+    </script>
+    <script src="bootstrap.min.js"></script>
+    
 </body>
 
 </html>
